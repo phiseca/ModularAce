@@ -1,8 +1,6 @@
 package io.github.phiseca.listeners;
 
 import io.github.phiseca.ModularAce;
-import io.github.phiseca.inventoryMenu.ModularModifierMenu;
-
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -27,7 +25,7 @@ public class PlayerListener implements Listener {
 				Material type =block.getType();
 				/* Check if Emerald */
 				if(type== Material.EMERALD_BLOCK){
-					player.openInventory(ModularModifierMenu.ModularModifierMenu);
+					player.openInventory(plugin.modularModifierMenu.ModularModifierMenu);
 				}
 				break;
 			default:

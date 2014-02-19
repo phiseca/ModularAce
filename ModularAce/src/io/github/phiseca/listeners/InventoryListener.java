@@ -1,8 +1,6 @@
 package io.github.phiseca.listeners;
 
 import io.github.phiseca.ModularAce;
-import io.github.phiseca.inventoryMenu.ModularModifierMenu;
-
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -27,7 +25,7 @@ public class InventoryListener implements Listener {
 		ItemStack clicked =event.getCurrentItem();
 		Inventory inventory=event.getInventory();
 		
-		if(inventory.getName().equals(ModularModifierMenu.ModularModifierMenu.getName())){
+		if(inventory.getName().equals(plugin.modularModifierMenu.ModularModifierMenu.getName())){
 			if(clicked.getType()==Material.THIN_GLASS && clicked.getDurability()==(short)15){
 				event.setCancelled(true);
 				player.closeInventory();
