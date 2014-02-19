@@ -12,9 +12,23 @@ public final class ModularAce  extends JavaPlugin{
 	
 	@Override
 	public void onEnable(){
-	
-		modularModifierMenu= new ModularModifierMenu();
-		registerEvents();
+		try{
+			modularModifierMenu= new ModularModifierMenu();
+			registerEvents();
+		}
+		catch (Throwable t){
+			getLogger().severe("There was an error while enabling ModularAce");
+			
+			if(!(t instanceof ExceptionInInitializerError)){
+				t.printStackTrace();
+			}
+			else{
+			getLogger().info("Please do not replace ModularAce jar while server is running.");
+			
+			}
+			getServer().getPluginManager().disablePlugin(this);
+				
+		}
 	}
 	
 	@Override

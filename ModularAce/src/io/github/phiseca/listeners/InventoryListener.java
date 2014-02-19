@@ -3,7 +3,6 @@ package io.github.phiseca.listeners;
 import io.github.phiseca.ModularAce;
 import io.github.phiseca.inventoryMenu.ModularModifierMenu;
 
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
