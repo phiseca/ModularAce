@@ -2,6 +2,7 @@ package io.github.phiseca;
 
 import io.github.phiseca.inventoryMenu.ModularModifierMenu;
 import io.github.phiseca.listeners.InventoryListener;
+import io.github.phiseca.listeners.PlayerListener;
 
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -37,8 +38,10 @@ public final class ModularAce  extends JavaPlugin{
 	}
 
 	public void registerEvents(){
+		
 		PluginManager pluginManager = getServer().getPluginManager();
 		
 		pluginManager.registerEvents(new InventoryListener(this), this);
+		pluginManager.registerEvents(new PlayerListener(this), this);
 	}
 }

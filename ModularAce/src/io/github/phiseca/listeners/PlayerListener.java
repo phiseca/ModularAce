@@ -23,8 +23,10 @@ public class PlayerListener implements Listener {
 		switch(event.getAction()){
 			case RIGHT_CLICK_BLOCK:
 				Material type =block.getType();
+				player.sendMessage("Material di klik adalah" +type.name());
 				/* Check if Emerald */
 				if(type== Material.EMERALD_BLOCK){
+					player.sendMessage("Right click pada emerald block");
 					player.openInventory(plugin.modularModifierMenu.ModularModifierMenu);
 				}
 				break;
