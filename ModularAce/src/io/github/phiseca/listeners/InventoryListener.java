@@ -26,9 +26,9 @@ public class InventoryListener implements Listener {
 		Inventory inventory=event.getInventory();
 		
 		if(inventory.getName().equals(plugin.modularModifierMenu.ModularModifierMenu.getName())){
-			if(clicked.getType()==Material.THIN_GLASS && clicked.getDurability()==(short)15){
+			if(clicked.getType()==Material.STAINED_GLASS_PANE && clicked.getDurability()==(byte)15){
 				event.setCancelled(true);
-				player.closeInventory();
+				//player.closeInventory();
 				//efek klik
 			}
 			

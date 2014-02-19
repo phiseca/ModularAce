@@ -14,8 +14,8 @@ public  Inventory ModularModifierMenu = Bukkit.createInventory(null, 27, "Modula
 	{
 		for (int i =0;i<27;i++)
 		{
-			if(i!=8){
-			ModularModifierMenu.setItem(i, new ItemStack(Material.THIN_GLASS, 1,(short) 15));
+			if(i!=9){
+			ModularModifierMenu.setItem(i, new ItemStack(Material.STAINED_GLASS_PANE, 1,(byte) 15));
 			}
 			
 			
