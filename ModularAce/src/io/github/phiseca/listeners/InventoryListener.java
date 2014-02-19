@@ -1,6 +1,7 @@
 package io.github.phiseca.listeners;
 
 import io.github.phiseca.ModularAce;
+import io.github.phiseca.inventoryMenu.ModularModifierMenu;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -14,20 +15,7 @@ import org.bukkit.inventory.ItemStack;
 public class InventoryListener implements Listener {
 	private final ModularAce plugin;
 	
-	public static Inventory ModularModifierMenu = Bukkit.createInventory(null, 27, "Modular Modifier Menu");
 	
-	static{
-		for (int i =0;i<=27;i++)
-		{
-			if(i!=8){
-			ModularModifierMenu.setItem(i, new ItemStack(Material.THIN_GLASS, 1,(short) 15));
-			}
-			
-			
-			
-		}
-		
-	}
 	
 	public InventoryListener(final ModularAce plugin){
 		this.plugin=plugin;
@@ -40,7 +28,7 @@ public class InventoryListener implements Listener {
 		ItemStack clicked =event.getCurrentItem();
 		Inventory inventory=event.getInventory();
 		
-		if(inventory.getName().equals(ModularModifierMenu.getName())){
+		if(inventory.getName().equals(ModularModifierMenu.ModularModifierMenu.getName())){
 			if(clicked.getType()==Material.THIN_GLASS && clicked.getDurability()==(short)15){
 				event.setCancelled(true);
 				player.closeInventory();
