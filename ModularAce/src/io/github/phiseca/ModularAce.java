@@ -1,22 +1,27 @@
 package io.github.phiseca;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import io.github.phiseca.inventoryMenu.ModularModifierMenu;
 import io.github.phiseca.listeners.InventoryListener;
 import io.github.phiseca.listeners.PlayerListener;
 import io.github.phiseca.multiblock.ModularMultiBlock;
 
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class ModularAce  extends JavaPlugin{
 	
-	public ModularModifierMenu modularModifierMenu;
+	public static ModularAce p;
+	public Map<Player, ModularModifierMenu> modularMenuMap = new HashMap<Player, ModularModifierMenu>();
 	public ModularMultiBlock modularMultiBlock;
 	
 	@Override
 	public void onEnable(){
 		try{
-			modularModifierMenu= new ModularModifierMenu();
+			p=this;
 			modularMultiBlock= new ModularMultiBlock();
 			registerEvents();
 		}
@@ -46,5 +51,14 @@ public final class ModularAce  extends JavaPlugin{
 		
 		pluginManager.registerEvents(new InventoryListener(this), this);
 		pluginManager.registerEvents(new PlayerListener(this), this);
+	}
+	
+	public ModularModifierMenu registerModularModifier(Player player){
+		modularMenuMap.put(player, new ModularModifierMenu());
+		return modularMenuMap.get(player);
+	}
+	
+	public ModularModifierMenu getModularModifier(Player player){
+		return modularMenuMap.get(player);
 	}
 }

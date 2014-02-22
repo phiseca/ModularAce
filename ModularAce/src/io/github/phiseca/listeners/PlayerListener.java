@@ -34,25 +34,43 @@ public class PlayerListener implements Listener {
 				Material type =block.getType();
 				blockloc = block.getLocation();
 			    block.getLocation(blockloc) ;
-			    if (plugin.modularMultiBlock.multiblockcustom(block,3, 
-			    		  "LAPIS_BLOCK|LAPIS_BLOCK  |LAPIS_BLOCK|"
-			    		+ "LAPIS_BLOCK|EMERALD_BLOCK|LAPIS_BLOCK|"
-			    		+ "LAPIS_BLOCK|AIR          |LAPIS_BLOCK|"
+			    // ModularModifier
+			    if(plugin.modularMultiBlock.multiblockcustom(block,4,
+						"LAPIS_BLOCK|LAPIS_BLOCK|LAPIS_BLOCK|"
+						+"LAPIS_BLOCK|EMERALD_BLOCK|LAPIS_BLOCK|"
+						+"LAPIS_BLOCK|AIR|LAPIS_BLOCK|"
 
-			    		+ "LAPIS_BLOCK|LAPIS_BLOCK  |LAPIS_BLOCK|"
-			    		+ "STEP       |AIR          |STEP       |"
-			    		+ "STEP       |AIR          |STEP       |"
+						+"LAPIS_BLOCK|LAPIS_BLOCK|LAPIS_BLOCK|"
+						+"STEP|AIR|STEP|"
+						+"STEP|AIR|STEP|"
+						
+						+"AIR|COBBLE_WALL|AIR|"
+						+"AIR|CAULDRON|AIR|"
+						+"AIR|AIR|AIR|"
+						
+						+"AIR|COBBLE_WALL|AIR|"
+						+"AIR|COBBLE_WALL|AIR|"
+						+"AIR|AIR|AIR|")==true)
+				    {
 			    		
-			    		+ "AIR        |COBBLE_WALL  |AIR        |"
-			    		+ "AIR        |CAULDRON     |AIR        |"
-			    		+ "AIR        |AIR          |AIR        |"
-			    		
-			    		+ "AIR        |COBBLE_WALL  |AIR        |"
-			    		+ "AIR        |COBBLE_WALL  |AIR        |"
-			    		+ "AIR        |AIR          |AIR        |"))
-			    {
-			    	player.openInventory(plugin.modularModifierMenu.ModularModifierMenu);
-			    }
+				    	player.openInventory(plugin.registerModularModifier(player).inventory);
+				    }
+			    //BatteryModifier
+				if(plugin.modularMultiBlock.multiblockcustom(block,3,
+						"LAPIS_BLOCK|LAPIS_BLOCK|LAPIS_BLOCK|"
+						+"LAPIS_BLOCK|EMERALD_BLOCK|LAPIS_BLOCK|"
+						+"LAPIS_BLOCK|AIR|LAPIS_BLOCK|"
+
+						+"LAPIS_BLOCK|LAPIS_BLOCK|LAPIS_BLOCK|"
+						+"REDSTONE_BLOCK|TRIPWIRE_HOOK|REDSTONE_BLOCK|"
+						+"STEP|AIR|STEP|"
+						
+						+"STEP|STEP|STEP|"
+						+"STEP|STEP|STEP|"
+						+"AIR|AIR|AIR|")==true)
+				    {
+					player.openInventory(plugin.registerModularModifier(player).inventory);
+				    }
 			    /*
 			    if(plugin.modularMultiBlock.multiblockcustom(block, 1, 1, 1, 0, 0, 0, "EMERALD_BLOCK")==true)
 			    {

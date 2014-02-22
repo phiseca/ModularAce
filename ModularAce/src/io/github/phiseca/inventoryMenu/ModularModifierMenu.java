@@ -1,5 +1,6 @@
 package io.github.phiseca.inventoryMenu;
 
+import io.github.phiseca.ModularAce;
 import io.github.phiseca.dataType.PointModular;
 
 import java.awt.Point;
@@ -18,9 +19,10 @@ import org.bukkit.block.BlockFace;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-public class ModularModifierMenu<a> {
+public class ModularModifierMenu{
 	
-public  Inventory ModularModifierMenu = Bukkit.createInventory(null, 27, "Modular Modifier Menu");
+public static String name="Modular Modifier Menu";
+public  Inventory inventory = Bukkit.createInventory(null, 27, "Modular Modifier Menu");
 
 Material[] list= new Material[]{
 		Material.LAPIS_BLOCK,
@@ -47,7 +49,7 @@ public Material faceMaterial= Material.AIR;
 		for (int i =0;i<27;i++)
 		{
 			if(i!=9){
-			ModularModifierMenu.setItem(i, new ItemStack(Material.STAINED_GLASS_PANE, 1,(byte) 15));
+			inventory.setItem(i, new ItemStack(Material.STAINED_GLASS_PANE, 1,(byte) 15));
 			}
 		}
 		/*
@@ -149,17 +151,20 @@ public Material faceMaterial= Material.AIR;
 		*/
 		
 	}
-	public static void refreshInventory(Inventory inventory){
+	
+	public void refreshInventory(){
+		
 		if(inventory.getItem(9)!=null){
-			for(int i =10;i<16;i++){
+			for(int i =10;i<=16;i++){
 				inventory.setItem(i, new ItemStack(Material.SIGN));
 			}
 		}
 		else{
-			for(int i =10;i<16;i++){
+			for(int i =10;i<=16;i++){
 				inventory.setItem(i, new ItemStack(Material.STAINED_GLASS_PANE, 1,(byte) 15));
 			}
 		}
+		
 	}
 
 }

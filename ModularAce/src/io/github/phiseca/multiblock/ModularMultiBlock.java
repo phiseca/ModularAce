@@ -47,33 +47,173 @@ public class ModularMultiBlock {
 	
 	public boolean multiblockcustom(Block block,int height,String blocks)
 	{
-		blocks = blocks.replaceAll("\\s", "");
+		blocks = blocks.replace(" ", "");
 		String[] blocklist =  blocks.split("\\|");
 		height = height - 1;
-		boolean MB = true;
+		boolean MB = false;
+		boolean scan = true;
 		int o = 0;
 		
-		for (int i = 0; i <= height-1; i++)
+		for (int y = 0; y <= height; y++)
 		{
-			for (int j = -1; j <= 1; j++)
+			for (int z = -1; z <= 1; z++)
 			{
-				for (int k = -1; k <= 1; k++)
+				for (int x = -1; x <= 1; x++)
 				{
-					Block blockscan = block.getRelative(k, i, j);
+					Block blockscan = block.getRelative(x, y, z);
 					if (blockscan.getType() == Material.getMaterial(blocklist[o]))
 					{
 						MB = true;
+						scan = true;
 					}
 					else
 					{
 						MB = false;
+						scan = false;
 						break;
 					}
 					o=o+1;
+					if (scan == false)
+					{
+						break;
+					}
 				}	
+				if (scan == false)
+				{
+					break;
+				}
 			}	
+			if (scan == false)
+			{
+				break;
+			}
 		}	
 		
+		//90
+		o=0;
+		scan = true;
+		if (MB == false)
+		{
+		for (int y = 0; y <= height; y++)
+		{
+			for (int x = -1; x <= 1; x++)
+			{
+				for (int z = 1; z >= -1; z--)
+				{
+					Block blockscan = block.getRelative(x, y, z);
+					if (blockscan.getType() == Material.getMaterial(blocklist[o]))
+					{
+						MB = true;
+						scan = true;
+					}
+					else
+					{
+						MB = false;
+						scan = false;
+						break;
+					}
+					o=o+1;
+					if (scan == false)
+					{
+						break;
+					}
+				}	
+				if (scan == false)
+				{
+					break;
+				}
+			}	
+			if (scan == false)
+			{
+				break;
+			}
+		}	
+		}
+
+		
+		//180
+		o=0;
+	    scan = true;
+		if (MB == false)
+		{
+		for (int y = 0; y <= height; y++)
+		{
+			for (int x = 1; x >= -1; x--)
+			{
+				for (int z = -1; z <= 1; z++)
+				{
+					Block blockscan = block.getRelative(x, y, z);
+					if (blockscan.getType() == Material.getMaterial(blocklist[o]))
+					{
+						MB = true;
+						scan = true;
+					}
+					else
+					{
+						MB = false;
+						scan = false;
+						break;
+					}
+					o=o+1;
+					if (scan == false)
+					{
+						break;
+					}
+				}	
+				if (scan == false)
+				{
+					break;
+				}
+			}	
+			if (scan == false)
+			{
+				break;
+			}
+		}	
+		}
+
+
+		//270
+		o=0;
+		scan = true;
+		if (MB == false)
+		{
+		for (int y = 0; y <= height; y++)
+		{
+			for (int z = 1; z >= -1; z--)
+			{
+				for (int x = 1; x >= -1; x--)
+				{
+					Block blockscan = block.getRelative(x, y, z);
+					if (blockscan.getType() == Material.getMaterial(blocklist[o]))
+					{
+						MB = true;
+						scan = true;
+					}
+					else
+					{
+						MB = false;
+						scan = false;
+						break;
+					}
+					o=o+1;
+					if (scan == false)
+					{
+						break;
+					}
+				}	
+				if (scan == false)
+				{
+					break;
+				}
+			}	
+			if (scan == false)
+			{
+				break;
+			}
+		}	
+		}
+
 		
 		if(MB == true)
 		{
