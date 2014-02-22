@@ -149,5 +149,17 @@ public Material faceMaterial= Material.AIR;
 		*/
 		
 	}
+	public static void refreshInventory(Inventory inventory){
+		if(inventory.getItem(9)!=null){
+			for(int i =10;i<16;i++){
+				inventory.setItem(i, new ItemStack(Material.SIGN));
+			}
+		}
+		else{
+			for(int i =10;i<16;i++){
+				inventory.setItem(i, new ItemStack(Material.STAINED_GLASS_PANE, 1,(byte) 15));
+			}
+		}
+	}
 
 }

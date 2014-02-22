@@ -1,6 +1,8 @@
 package io.github.phiseca.listeners;
 
 import io.github.phiseca.ModularAce;
+import io.github.phiseca.inventoryMenu.ModularModifierMenu;
+
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -29,6 +31,9 @@ public class InventoryListener implements Listener {
 				event.setCancelled(true);
 				//player.closeInventory();
 				//efek klik
+			}
+			else if(clicked==null){
+				ModularModifierMenu.refreshInventory(inventory);
 			}
 			
 		
