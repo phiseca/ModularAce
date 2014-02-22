@@ -24,7 +24,6 @@ public class InventoryListener implements Listener {
 		Player player= (Player) event.getWhoClicked();
 		ItemStack clicked =event.getCurrentItem();
 		Inventory inventory=event.getInventory();
-		
 		if(inventory.getName().equals(plugin.modularModifierMenu.ModularModifierMenu.getName())){
 			if(clicked.getType()==Material.STAINED_GLASS_PANE && clicked.getDurability()==(byte)15){
 				event.setCancelled(true);

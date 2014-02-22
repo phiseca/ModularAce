@@ -3,6 +3,7 @@ package io.github.phiseca;
 import io.github.phiseca.inventoryMenu.ModularModifierMenu;
 import io.github.phiseca.listeners.InventoryListener;
 import io.github.phiseca.listeners.PlayerListener;
+import io.github.phiseca.multiblock.ModularMultiBlock;
 
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -10,11 +11,13 @@ import org.bukkit.plugin.java.JavaPlugin;
 public final class ModularAce  extends JavaPlugin{
 	
 	public ModularModifierMenu modularModifierMenu;
+	public ModularMultiBlock modularMultiBlock;
 	
 	@Override
 	public void onEnable(){
 		try{
 			modularModifierMenu= new ModularModifierMenu();
+			modularMultiBlock= new ModularMultiBlock();
 			registerEvents();
 		}
 		catch (Throwable t){
